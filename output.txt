@@ -1,0 +1,29 @@
+ PROGRAM   |  PROGRAM   | 9076
+ ID_NAME   |  Example   | 1946
+ TYPE      |  INTEGER   | 2898
+ ID_NAME   |  a         | 97
+ DELIMITER |  ,         | 44
+ ID_NAME   |  b         | 98
+ ID_NAME   |  i         | 105
+ TYPE      |  REAL      | 9154
+ ID_NAME   |  x         | 120
+ ID_NAME   |  y         | 121
+ ID_NAME   |  wasd      | 2011
+ ID_NAME   |  g         | 103
+ OPERATOR  |  =         | 61
+ INT_NUM   |  50        | 1691
+ REAL_NUM  |  10.2345   | 1809
+ OPERATOR  |  +         | 43
+ OPERATOR  |  -         | 45
+ DELIMITER |  (         | 40
+ ID_NAME   |  v         | 118
+ DELIMITER |  )         | 41
+ ID_NAME   |  c         | 99
+ INT_NUM   |  5         | 53
+ ID_NAME   |  n         | 110
+ FUNC      |  RTOI      | 6108
+ REAL_NUM  |  2377.29837| 2136
+ REAL_NUM  |  83974.2934| 7627
+ FUNC      |  ITOR      | 7998
+ END       |  END       | 8795
+

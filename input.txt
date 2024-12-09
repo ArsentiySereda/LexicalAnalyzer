@@ -1,0 +1,9 @@
+PROGRAM Example 
+INTEGER a, b, i 
+REAL x, y, wasd, g 
+a = 50 
+x=10.2345 
+b = a + b - wasd + (a + v) 
+c = 5 + g + n + RTOI(2377.29837 + 83974.2934) 
+b = b - ITOR(RTOI(a-b)) 
+END Example 
