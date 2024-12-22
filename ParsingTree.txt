@@ -8,7 +8,6 @@ Program
       VarList
         a
         b
-        i
     deskrNode2
       REAL 
       VarList
@@ -34,26 +33,22 @@ Program
       =
         SimpleExpr
           ID_NAME
-            a
+            wasd
         +
           SimpleExpr
-            ID_NAME
-              b
-          -
-            SimpleExpr
-              ID_NAME
-                wasd
-            +
+            (
               SimpleExpr
-                (
-                  SimpleExpr
-                    ID_NAME
-                      a
-                  +
-                    SimpleExpr
-                      ID_NAME
-                        v
-                )
+                ID_NAME
+                  a
+              -
+                SimpleExpr
+                  ID_NAME
+                    v
+            )
+          +
+            SimpleExpr
+              INT_NUM
+                4
     OpLine 4
       c
       =

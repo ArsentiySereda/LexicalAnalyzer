@@ -4,7 +4,6 @@
  ID_NAME   |  a         | 97
  DELIMITER |  ,         | 44
  ID_NAME   |  b         | 98
- ID_NAME   |  i         | 105
  TYPE      |  REAL      | 9154
  ID_NAME   |  x         | 120
  ID_NAME   |  y         | 121
@@ -14,10 +13,11 @@
  INT_NUM   |  50        | 1691
  REAL_NUM  |  10.2345   | 1809
  OPERATOR  |  +         | 43
- OPERATOR  |  -         | 45
  DELIMITER |  (         | 40
+ OPERATOR  |  -         | 45
  ID_NAME   |  v         | 118
  DELIMITER |  )         | 41
+ INT_NUM   |  4         | 52
  ID_NAME   |  c         | 99
  INT_NUM   |  5         | 53
  ID_NAME   |  n         | 110
