@@ -28,6 +28,18 @@ Program
         SimpleExpr
           REAL_NUM
             10.2345
+        +
+          SimpleExpr
+            INT_NUM
+              6
+          -
+            SimpleExpr
+              INT_NUM
+                4
+            +
+              SimpleExpr
+                INT_NUM
+                  8
     OpLine 3
       b
       =
@@ -53,12 +65,12 @@ Program
       c
       =
         SimpleExpr
-          INT_NUM
-            5
+          ID_NAME
+            a
         +
           SimpleExpr
             ID_NAME
-              g
+              b
           +
             SimpleExpr
               ID_NAME
@@ -91,10 +103,6 @@ Program
                   SimpleExpr
                     ID_NAME
                       a
-                  -
-                    SimpleExpr
-                      ID_NAME
-                        b
                 )
             )
   End

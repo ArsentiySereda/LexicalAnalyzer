@@ -50,39 +50,111 @@ void SemanticAnalyzer::WriteOperators(Node Oper)
 	for (int i = 0; i < OperCount; i++) {
 		vector <string> newOper;
 		newOper.push_back(Oper.children[i].children[0].data);
-		vector <string> Expr = WriteExpr(Oper.children[i].children[1]);
-		for (int h = 0; h < Expr.size(); h++) { newOper.push_back(Expr[h]); }
+		vector <string> Expr1 = WriteSimpleExpr(Oper.children[i].children[1].children[0]);
+		for (int h = 0; h < Expr1.size(); h++) { newOper.push_back(Expr1[h]); }
+		if (Oper.children[i].children[1].children.size() == 2) {
+			vector <string> Expr = WriteExpr(Oper.children[i].children[1].children[1]);
+			for (int h = 0; h < Expr.size(); h++) { newOper.push_back(Expr[h]); }
+		}
 		newOper.push_back(Oper.children[i].children[1].data);
 		Operators.push_back(newOper);
 	}
 }
 
-vector<string> SemanticAnalyzer::WriteExpr(Node Expr)
-{
+vector <string> SemanticAnalyzer::WriteExpr(Node Expr) {
 	vector <string> Expression;
-	if (Expr.children[0].children[0].data == "ID_NAME" || Expr.children[0].children[0].data == "INT_NUM" ||
-		Expr.children[0].children[0].data == "REAL_NUM") {
-		Expression.push_back(Expr.children[0].children[0].children[0].data);
-	}
-	else {
-		if (Expr.children[0].children[0].data == "ITOR" || Expr.children[0].children[0].data == "RTOI") {
-			Expression.push_back(Expr.children[0].children[0].data); // мы нашли функцию itor или rtoi
-			vector <string> Expr1 = WriteExpr(Expr.children[0].children[1]);//анализируем выражение под функцией
-			for (int h = 0; h < Expr1.size(); h++) { Expression.push_back(Expr1[h]); }
-			Expression.push_back("CALL");
-		}
-		else if (Expr.children[0].children[0].data == "(") {
-			vector <string> Expr1 = WriteExpr(Expr.children[0].children[0]);//анализируем выражение под функцией
-			for (int h = 0; h < Expr1.size(); h++) { Expression.push_back(Expr1[h]); }
-		}
-	}
+	vector <string> Expr1 = WriteSimpleExpr(Expr.children[0]);
+	for (int h = 0; h < Expr1.size(); h++) { Expression.push_back(Expr1[h]); }
+	Expression.push_back(Expr.data);
 	if (Expr.children.size() == 2) {
 		vector <string> Expr2 = WriteExpr(Expr.children[1]);
 		for (int h = 0; h < Expr2.size(); h++) { Expression.push_back(Expr2[h]); }
-		Expression.push_back(Expr.children[1].data);
 	}
 	return Expression;
 }
+
+vector<string> SemanticAnalyzer::WriteSimpleExpr(Node SimpleExpr)
+{
+	vector <string> SimpleExpression;
+	if (SimpleExpr.children[0].data == "ID_NAME" || SimpleExpr.children[0].data == "INT_NUM" ||
+				SimpleExpr.children[0].data == "REAL_NUM") {
+				SimpleExpression.push_back(SimpleExpr.children[0].children[0].data);
+	}
+	else {
+		if (SimpleExpr.children[0].data == "ITOR" || SimpleExpr.children[0].data == "RTOI") {
+			SimpleExpression.push_back(SimpleExpr.children[0].data); // мы нашли функцию itor или rtoi
+			vector <string> Expr1 = WriteSimpleExpr(SimpleExpr.children[1].children[0]);
+			for (int h = 0; h < Expr1.size(); h++) { SimpleExpression.push_back(Expr1[h]); }
+			if (SimpleExpr.children[1].children.size() == 2) {
+				vector <string> Expr1 = WriteExpr(SimpleExpr.children[1].children[1]);
+				for (int h = 0; h < Expr1.size(); h++) { SimpleExpression.push_back(Expr1[h]); }
+			}
+			SimpleExpression.push_back("CALL");
+		}
+		else if (SimpleExpr.children[0].data == "(") {
+			SimpleExpression.push_back(SimpleExpr.children[0].children[0].children[0].children[0].data);
+			if (SimpleExpr.children[0].children.size() == 2) {
+				vector <string> Expr1 = WriteExpr(SimpleExpr.children[0].children[1]);
+				for (int h = 0; h < Expr1.size(); h++) { SimpleExpression.push_back(Expr1[h]); }
+			}
+		}
+	}
+	return SimpleExpression;
+}
+
+//vector<string> SemanticAnalyzer::WriteExpr(Node Expr)
+//{
+//	vector <string> Expression;
+//	if (Expr.children[0].children[0].data == "ID_NAME" || Expr.children[0].children[0].data == "INT_NUM" ||
+//		Expr.children[0].children[0].data == "REAL_NUM") {
+//		Expression.push_back(Expr.children[0].children[0].children[0].data);
+//	}
+//	else {
+//		if (Expr.children[0].children[0].data == "ITOR" || Expr.children[0].children[0].data == "RTOI") {
+//			Expression.push_back(Expr.children[0].children[0].data); // мы нашли функцию itor или rtoi
+//			vector <string> Expr1 = WriteSimpleExpr(Expr.children[0].children[1]);//анализируем выражение под функцией
+//			for (int h = 0; h < Expr1.size(); h++) { Expression.push_back(Expr1[h]); }
+//			Expression.push_back("CALL");
+//		}
+//		else if (Expr.children[0].children[0].data == "(") {
+//			vector <string> Expr1 = WriteSimpleExpr(Expr.children[0].children[0]);//анализируем выражение под функцией
+//			for (int h = 0; h < Expr1.size(); h++) { Expression.push_back(Expr1[h]); }
+//		}
+//	}
+//	if (Expr.children.size() == 2) {
+//		vector <string> Expr2 = WriteSimpleExpr(Expr.children[1].children[0]);
+//		for (int h = 0; h < Expr2.size(); h++) { Expression.push_back(Expr2[h]); }
+//		Expression.push_back(Expr.children[1].data);
+//		if (Expr.children[1].children.size() == 2) {
+//			vector <string> Expr2 = WriteExpr(Expr.children[1].children[1]);
+//			for (int h = 0; h < Expr2.size(); h++) { Expression.push_back(Expr2[h]); }
+//			Expression.push_back(Expr.children[1].data);
+//		}
+//	}
+//	return Expression;
+//}
+//
+//vector<string> SemanticAnalyzer::WriteSimpleExpr(Node SimpleExpr)
+//{
+//	vector <string> SimpleExpression;
+//	if (SimpleExpr.children[0].data == "ID_NAME" || SimpleExpr.children[0].data == "INT_NUM" ||
+//		SimpleExpr.children[0].data == "REAL_NUM") {
+//		SimpleExpression.push_back(SimpleExpr.children[0].children[0].data);
+//	}
+//	else {
+//		if (SimpleExpr.children[0].data == "ITOR" || SimpleExpr.children[0].data == "RTOI") {
+//			SimpleExpression.push_back(SimpleExpr.children[0].data); // мы нашли функцию itor или rtoi
+//			vector <string> Expr1 = WriteExpr(SimpleExpr.children[1]);//анализируем выражение под функцией
+//			for (int h = 0; h < Expr1.size(); h++) { SimpleExpression.push_back(Expr1[h]); }
+//			SimpleExpression.push_back("CALL");
+//		}
+//		else if (SimpleExpr.children[0].data == "(") {
+//			vector <string> Expr1 = WriteExpr(SimpleExpr.children[0]);//анализируем выражение под функцией
+//			for (int h = 0; h < Expr1.size(); h++) { SimpleExpression.push_back(Expr1[h]); }
+//		}
+//	}
+//	return SimpleExpression;
+//}
 
 void SemanticAnalyzer::printSematicAnalyzer()
 {

@@ -27,5 +27,6 @@ private:
 	void WriteDeskriptions(Node Deskr);
 	void WriteOperators(Node Oper);
 	vector <string> WriteExpr(Node Expr);
+	vector <string> WriteSimpleExpr(Node SimpleExpr);
 };
 

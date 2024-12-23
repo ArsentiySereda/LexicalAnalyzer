@@ -2,8 +2,8 @@ PROGRAM Example
 INTEGER a, b 
 REAL x, y, wasd, g 
 a = 50 
-x = 10.2345 
+x = 10.2345 + 6 - 4 + 8
 b = wasd + (a - v) + 4
-c = 5 + g + n + RTOI(2377.29837 + 83974.2934) 
-b = b - ITOR(RTOI(a-b)) 
-END Example 
+c = a + b + n + RTOI(2377.29837 + 83974.2934)  
+b = b - ITOR(RTOI(a))  
+END Example  

@@ -13,13 +13,14 @@
  INT_NUM   |  50        | 1691
  REAL_NUM  |  10.2345   | 1809
  OPERATOR  |  +         | 43
- DELIMITER |  (         | 40
+ INT_NUM   |  6         | 54
  OPERATOR  |  -         | 45
+ INT_NUM   |  4         | 52
+ INT_NUM   |  8         | 56
+ DELIMITER |  (         | 40
  ID_NAME   |  v         | 118
  DELIMITER |  )         | 41
- INT_NUM   |  4         | 52
  ID_NAME   |  c         | 99
- INT_NUM   |  5         | 53
  ID_NAME   |  n         | 110
  FUNC      |  RTOI      | 6108
  REAL_NUM  |  2377.29837| 2136
