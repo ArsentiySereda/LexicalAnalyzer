@@ -4,24 +4,46 @@ Program
     Example
   Descriptions
     deskrNode1
-      INTEGER 
+      INTEGER
       VarList
         a
         b
+        ss
+        t
+        i
     deskrNode2
-      REAL 
+      REAL
       VarList
         x
         y
         wasd
         g
+        babube
+    deskrNode3
+      REAL
+      VarList
+        c
+        d
+        e
   Operators
     OpLine 1
-      a
+      i
       =
         SimpleExpr
-          INT_NUM
-            50
+          ID_NAME
+            i
+        +
+          SimpleExpr
+            ID_NAME
+              a
+          -
+            SimpleExpr
+              RTOI
+              (
+                SimpleExpr
+                  ID_NAME
+                    x
+              )
     OpLine 2
       x
       =
@@ -30,22 +52,22 @@ Program
             10.2345
         +
           SimpleExpr
-            INT_NUM
-              6
+            REAL_NUM
+              6.2
           -
             SimpleExpr
-              INT_NUM
-                4
+              REAL_NUM
+                4.3897842
             +
               SimpleExpr
-                INT_NUM
-                  8
+                ID_NAME
+                  e
     OpLine 3
       b
       =
         SimpleExpr
           ID_NAME
-            wasd
+            a
         +
           SimpleExpr
             (
@@ -54,8 +76,12 @@ Program
                   a
               -
                 SimpleExpr
-                  ID_NAME
-                    v
+                  RTOI
+                  (
+                    SimpleExpr
+                      ID_NAME
+                        x
+                  )
             )
           +
             SimpleExpr
@@ -66,6 +92,12 @@ Program
       =
         SimpleExpr
           ID_NAME
+            wasd
+    OpLine 5
+      b
+      =
+        SimpleExpr
+          ID_NAME
             a
         +
           SimpleExpr
@@ -73,38 +105,12 @@ Program
               b
           +
             SimpleExpr
-              ID_NAME
-                n
-            +
-              SimpleExpr
-                RTOI
-                (
-                  SimpleExpr
-                    REAL_NUM
-                      2377.29837
-                  +
-                    SimpleExpr
-                      REAL_NUM
-                        83974.2934
-                )
-    OpLine 5
-      b
-      =
-        SimpleExpr
-          ID_NAME
-            b
-        -
-          SimpleExpr
-            ITOR
-            (
-              SimpleExpr
-                RTOI
-                (
-                  SimpleExpr
-                    ID_NAME
-                      a
-                )
-            )
+              RTOI
+              (
+                SimpleExpr
+                  ID_NAME
+                    x
+              )
   End
     END
     Example

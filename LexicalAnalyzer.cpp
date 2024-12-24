@@ -242,6 +242,7 @@ Token LexicalAnalyzer::getNextLexeme() {
                                                             }
                                                             else if (elem == ' ') {
                                                                 inputFile.unget();
+                                                                lexeme.erase(lexeme.end() - 1);
                                                                 return Token(TokenType::TYPE, lexeme, index, 0);
                                                             }
                                                         }
@@ -362,6 +363,7 @@ Token LexicalAnalyzer::getNextLexeme() {
                                     }
                                     else if (elem == ' ') {
                                         inputFile.unget();
+                                        lexeme.erase(lexeme.end() - 1);
                                         return Token(TokenType::TYPE, lexeme, index, 0);
                                     }
                                 }

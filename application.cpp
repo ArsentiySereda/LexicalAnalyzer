@@ -37,8 +37,14 @@ int main() {
         lexer.tokenList.outTable(outputFile);
 
         SemanticAnalyzer work = SemanticAnalyzer(parseTree);
-
-        work.printSematicAnalyzer();
+        ofstream outPostfixFile("PostfixRecord.txt");
+        if (outPostfixFile.is_open()) {
+            work.printSematicAnalyzer(outPostfixFile);
+            outPostfixFile.close();
+        }
+        else {
+            cerr << "Failed to open file for writing." << endl;
+        }
         
     }
     catch (const exception& e) {

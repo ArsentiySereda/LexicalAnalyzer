@@ -1,0 +1,8 @@
+INTEGERa b ss t i 6 DECL 
+REALx y wasd g babube 6 DECL 
+REALc d e 4 DECL 
+i i a + RTOI x CALL - = 
+x 10.2345 6.2 + 4.3897842 - e + = 
+b a a RTOI x CALL - + 4 + = 
+c wasd = 
+b a b + RTOI x CALL + = 

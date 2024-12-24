@@ -67,5 +67,8 @@
     <Text Include="ParsingTree.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
+    <Text Include="PostfixRecord.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
   </ItemGroup>
 </Project>

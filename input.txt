@@ -1,9 +1,10 @@
 PROGRAM Example 
-INTEGER a, b 
-REAL x, y, wasd, g 
-a = 50 
-x = 10.2345 + 6 - 4 + 8
-b = wasd + (a - v) + 4
-c = a + b + n + RTOI(2377.29837 + 83974.2934)  
-b = b - ITOR(RTOI(a))  
+INTEGER a, b, ss, t, i 
+REAL x, y, wasd, g, babube  
+REAL c, d, e 
+i = i + a - RTOI(x)
+x = 10.2345 + 6.2 - 4.3897842 + e  
+b = a + (a - RTOI(x)) + 4 
+c = wasd  
+b = a + b + RTOI(x)  
 END Example  

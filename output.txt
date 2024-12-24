@@ -1,30 +1,30 @@
  PROGRAM   |  PROGRAM   | 9076
  ID_NAME   |  Example   | 1946
- TYPE      |  INTEGER   | 2898
+ TYPE      |  INTEGER   | 4286
  ID_NAME   |  a         | 97
  DELIMITER |  ,         | 44
  ID_NAME   |  b         | 98
- TYPE      |  REAL      | 9154
+ ID_NAME   |  ss        | 3680
+ ID_NAME   |  t         | 116
+ ID_NAME   |  i         | 105
+ TYPE      |  REAL      | 1262
  ID_NAME   |  x         | 120
  ID_NAME   |  y         | 121
  ID_NAME   |  wasd      | 2011
  ID_NAME   |  g         | 103
- OPERATOR  |  =         | 61
- INT_NUM   |  50        | 1691
- REAL_NUM  |  10.2345   | 1809
- OPERATOR  |  +         | 43
- INT_NUM   |  6         | 54
- OPERATOR  |  -         | 45
- INT_NUM   |  4         | 52
- INT_NUM   |  8         | 56
- DELIMITER |  (         | 40
- ID_NAME   |  v         | 118
- DELIMITER |  )         | 41
+ ID_NAME   |  babube    | 3429
  ID_NAME   |  c         | 99
- ID_NAME   |  n         | 110
+ ID_NAME   |  d         | 100
+ ID_NAME   |  e         | 101
+ OPERATOR  |  =         | 61
+ OPERATOR  |  +         | 43
+ OPERATOR  |  -         | 45
  FUNC      |  RTOI      | 6108
- REAL_NUM  |  2377.29837| 2136
- REAL_NUM  |  83974.2934| 7627
- FUNC      |  ITOR      | 7998
+ DELIMITER |  (         | 40
+ DELIMITER |  )         | 41
+ REAL_NUM  |  10.2345   | 1809
+ REAL_NUM  |  6.2       | 3370
+ REAL_NUM  |  4.3897842 | 905
+ INT_NUM   |  4         | 52
  END       |  END       | 8795
 
